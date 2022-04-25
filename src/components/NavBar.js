@@ -14,7 +14,6 @@ const NavBar = ({setCategory}) => {
         alt="inshort"
         height="80%"
       />
-      
     </div>
   );
 };

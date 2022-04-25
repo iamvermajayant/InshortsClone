@@ -6,6 +6,6 @@ const category = [
     "science",
     "sports",
     "technology",
-];
+];   
 
 export default category;

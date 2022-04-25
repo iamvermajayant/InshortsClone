@@ -2,14 +2,16 @@ import { useState , useEffect } from 'react';
 import axios from "axios";
 import './App.css';
 import NavBar from './components/NavBar';
-import NewsComponent from './components/NewsComponent';
+import NewsComponent from './components/NewsComponent/NewsComponent';
 import apikey from './Data/config';
+import Footer from './components/Footer/Footer';
 
 
 function App() {
   const [category, setCategory] = useState("general");
   const [newsArray , setNewsArray] = useState([]);
   const [newsResult, setNewsResult] = useState();
+  const [loadMore, setLoadMore] = useState(20);
   
   useEffect(() =>{
     newsApi();
@@ -30,7 +32,8 @@ function App() {
   return (
     <div className="App">
       <NavBar setCategory={setCategory}/>
-      <NewsComponent/>
+      <NewsComponent loadMore={loadMore} newsArray={newsArray} newsResult={newsResult}/>
+      <Footer/>
     </div>
   );
 }

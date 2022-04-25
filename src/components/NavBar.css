@@ -3,6 +3,9 @@
     box-shadow : 0px 1px 8px #888888;
     display : flex;
     align-items : center;
+    position : fixed;
+    width : 100%;
+    background-color : #fff;
 }
 .icon{
     flex : 0.5;
