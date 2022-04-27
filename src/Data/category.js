@@ -7,5 +7,5 @@ const category = [
     "sports",
     "technology",
 ];   
-
+    
 export default category;

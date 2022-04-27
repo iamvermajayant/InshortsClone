@@ -3,7 +3,7 @@
 # dependencies
 /node_modules
 /.pnp
-src/Data/
+/src/Data/!.js
 .pnp.js
 
 
