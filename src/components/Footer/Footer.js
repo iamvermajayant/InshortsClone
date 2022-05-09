@@ -1,7 +1,6 @@
 import React from 'react'
 import './footer.css';
-import LinkedinOutlined from '@ant-design/icons';
-import { StarOutlined } from '@ant-design/icons';
+
 
 const Footer = () => {
   return (

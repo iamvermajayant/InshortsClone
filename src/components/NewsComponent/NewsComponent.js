@@ -3,7 +3,7 @@ import Container from "@material-ui/core/Container";
 import "./NewsComponent.css";
 import NewsCard from "../NewsCard/NewsCard";
 
-const NewsComponent = ({ newsArray, newsResult, loadMore }) => {
+const NewsComponent = ({ newsArray, newsResult, loadMore, setLoadMore }) => {
   return (
     <Container maxWidth="md">
       <div className="content">
@@ -22,10 +22,22 @@ const NewsComponent = ({ newsArray, newsResult, loadMore }) => {
             src="https://assets.inshorts.com/website_assets/images/playstore.png"
           />
         </div>
+        {newsArray.map((newsItem) => (
+          <NewsCard newsItem={newsItem} key={newsItem.title} />
+        ))}
+ 
+         {loadMore <= newsResult && (
+          <>
+          <hr />
+            <button
+              className="btn loadMore"
+              onClick={() => setLoadMore(loadMore + 10)}
+            >
+              Load More
+            </button>
+          </>
+         )}
       </div>
-      {newsArray.map((newsItem) => (
-        <NewsCard newsItem={newsItem} key = {newsItem.title}/>
-      ))}
     </Container>
   );
 };
