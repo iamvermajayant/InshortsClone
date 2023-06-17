@@ -13,38 +13,52 @@ function App() {
   const [newsResult, setNewsResult] = useState();
   const [loadMore, setLoadMore] = useState(20);
 
-  
-
   useEffect(() => {
     newsApi();
     //eslint-disable-next-line
   }, [newsResult, loadMore, category]);
 
+  // const newsApi = async () => {
+  //   try {
+  //     const news = await axios.get(
+  //       `https://newsapi.org/v2/top-headlines?country=in&apiKey=${process.env.REACT_APP_API_KEY}&category=${category}&pageSize=${loadMore}`
+  //     );
+  //     setNewsArray(news.data.articles);
+  //     setNewsResult(news.data.totalResults);
+  //     console.log(news.data.articles);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+
   const newsApi = async () => {
     try {
-      const proxy = 'https://cors-anywhere.herokuapp.com/';
       const news = await axios.get(
-        `${proxy}https://newsapi.org/v2/top-headlines?country=in&apiKey=${process.env.REACT_APP_API_KEY}&category=${category}&pageSize=${loadMore}`
+        `https://inshorts-backend.onrender.com/api?country=in&apiKey=${process.env.REACT_APP_API_KEY}&category=${category}&pageSize=${loadMore}`
       );
       setNewsArray(news.data.articles);
       setNewsResult(news.data.totalResults);
+      console.log(news.data.articles);
     } catch (err) {
       console.log(err);
     }
   };
+
+
+ 
 
   console.log(newsArray);
 
   return (
     <div className="App">
       <NavBar setCategory={setCategory} />
-      
-        <NewsComponent
-          loadMore={loadMore}
-          newsArray={newsArray}
-          newsResult={newsResult}
-          setLoadMore={setLoadMore}
-        />
+
+      <NewsComponent
+        loadMore={loadMore}
+        newsArray={newsArray}
+        newsResult={newsResult}
+        setLoadMore={setLoadMore}
+      />
 
       <Footer />
     </div>

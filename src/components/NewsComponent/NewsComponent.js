@@ -22,7 +22,7 @@ const NewsComponent = ({ newsArray, newsResult, loadMore, setLoadMore }) => {
             src="https://assets.inshorts.com/website_assets/images/playstore.png"
           />
         </div>
-        {newsArray.map((newsItem) => (
+        {newsArray?.map((newsItem) => (
           <NewsCard newsItem={newsItem} key={newsItem.title} />
         ))}
  
